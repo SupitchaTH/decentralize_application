@@ -1,23 +1,25 @@
+import 'package:decentralize_application/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 class SplashController extends GetxController {
-  //TODO: Implement SplashController
+  final RxString splashWelcomeText = 'Welcome to Decentralize Application'.obs;
 
-  final count = 0.obs;
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+    await _makeDecision();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future _makeDecision() async {
+    await Future.delayed(
+      const Duration(
+        seconds: 2,
+      ),
+      _goToRegister(),
+    );
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  _goToRegister() {
+    Get.toNamed(Routes.REGISTER);
   }
-
-  void increment() => count.value++;
 }

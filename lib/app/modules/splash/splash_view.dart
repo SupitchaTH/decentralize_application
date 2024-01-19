@@ -7,14 +7,9 @@ class SplashView extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'SplashView is working',
-          style: TextStyle(fontSize: 20),
+      body: Center(
+        child: Obx(
+          () => Text("${controller.splashWelcomeText}"),
         ),
       ),
     );
